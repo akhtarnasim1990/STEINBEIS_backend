@@ -23,10 +23,6 @@ module.exports.userDetails = async (req, res) => {
       throw new Error("Please mention gender.");
     }
 
-    // const salt = bcrypt.genSaltSync(10);
-
-    // const encryptedPassword = bcrypt.hashSync(password, salt);
-
     const user = await User.findOne({ name: name });
     console.log("user", user);
     if (user) {
@@ -38,7 +34,6 @@ module.exports.userDetails = async (req, res) => {
         dob,
         age,
         gender,
-        // password: encryptedPassword,
       });
 
       newUser.save().then((result) => {
